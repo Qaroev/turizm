@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:turizm/pages/bottom-pages/offer-page.dart';
 
 import 'bottom-pages/network_page.dart';
-import 'bottom-pages/profile_page.dart';
+import 'bottom-pages/personal_area.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
 
   List pages = [
     OfferPage(),
-    ProfilePage(),
+    PersonalArea(),
     NetworkPage(),
   ];
   @override

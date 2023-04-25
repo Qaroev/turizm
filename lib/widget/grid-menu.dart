@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../data/country.dart';
+import '../pages/offer/offfer-details-page.dart';
 
 class GridMenu extends StatefulWidget {
   String nameCountry;
@@ -52,7 +53,11 @@ class _GridMenuState extends State<GridMenu> {
             ),
             itemCount: widget.listCountry.length,
             itemBuilder: (context, index) => GestureDetector(
-              onTap: () {},
+              onTap: () {
+                setState(() {
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> OfferDetailsPage()));
+                });
+              },
               child: Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

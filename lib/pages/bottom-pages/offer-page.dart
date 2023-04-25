@@ -4,9 +4,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:turizm/data/country.dart';
 import 'package:turizm/data/travel-card.dart';
+import 'package:turizm/pages/offer/list_hotels.dart';
 
 import '../../widget/grid-menu.dart';
-import '../offfer-details-page.dart';
+import '../offer/offfer-details-page.dart';
 
 StreamController<dynamic> refreshStream = StreamController<dynamic>.broadcast();
 
@@ -134,7 +135,9 @@ class _OfferPageState extends State<OfferPage> {
                         : EdgeInsets.only(right: 15),
                     child: GestureDetector(
                       onTap: (){
-
+                        setState(() {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> ListHotels()));
+                        });
                       },
                       child: Container(
                         width: 103,
@@ -203,10 +206,8 @@ class _OfferPageState extends State<OfferPage> {
                                   fontSize: 14,
                                   fontWeight: FontWeight.w500),
                             ),
-                            Icon(
-                              Icons.keyboard_arrow_down_outlined,
-                              color: Color(0xFF54ADFD),
-                            )
+                            SizedBox(width: 5,),
+                            Image.asset("assets/icons/sort.png")
                           ],
                         ))
                   ],
@@ -1093,4 +1094,5 @@ class _OfferPageState extends State<OfferPage> {
           });
         });
   }
+
 }
