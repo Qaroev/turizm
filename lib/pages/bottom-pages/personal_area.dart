@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:video_player/video_player.dart';
 
+import '../personal-area/earning_points.dart';
+import '../personal-area/my_referal.dart';
 import '../personal-area/points_cashing.dart';
 import '../personal-area/profile_page.dart';
 
@@ -392,7 +394,11 @@ class _PersonalAreaState extends State<PersonalArea> {
             height: 20,
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              setState(() {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => EarningPoints()));
+              });
+            },
             child: Container(
               height: 50,
               padding: EdgeInsets.symmetric(horizontal: 20),
@@ -417,7 +423,11 @@ class _PersonalAreaState extends State<PersonalArea> {
             height: 15,
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              setState(() {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MyReferal()));
+              });
+            },
             child: Container(
               height: 50,
               padding: EdgeInsets.symmetric(horizontal: 20),

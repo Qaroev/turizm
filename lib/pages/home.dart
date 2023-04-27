@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:turizm/pages/bottom-pages/offer-page.dart';
 
-import 'bottom-pages/network_page.dart';
+import 'bottom-pages/travel_lifestyle.dart';
 import 'bottom-pages/personal_area.dart';
 
 class Home extends StatefulWidget {
@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
   List pages = [
     OfferPage(),
     PersonalArea(),
-    NetworkPage(),
+    TravelLifestyle(),
   ];
   @override
   void initState() {

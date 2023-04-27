@@ -40,7 +40,12 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   syncfusion_flutter_charts: ^21.1.41
   video_player: ^2.6.1
+
   flick_video_player: ^0.5.0
+  graphite: ^1.1.0
+  flutter_flow_chart: ^1.0.0+1
+  star_menu: ^3.1.4
+  path_provider: ^2.0.14
 dev_dependencies:
   flutter_test:
     sdk: flutter
