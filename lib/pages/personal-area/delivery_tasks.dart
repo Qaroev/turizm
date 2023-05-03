@@ -25,15 +25,18 @@ class _DeliveryTasksState extends State<DeliveryTasks> {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         centerTitle: true,
-        title: Text(
-          "Сдача выполненных\nзаданий ",
-          style: TextStyle(
-              color: Color(0xFF0C6170),
-              fontSize: 24,
-              fontWeight: FontWeight.w500),
+        title: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text(
+            "Сдача выполненных\nзаданий ",
+            style: TextStyle(
+                color: Color(0xFF0C6170),
+                fontSize: 24,
+                fontWeight: FontWeight.w500),
+          ),
         ),
-        leadingWidth: 100,
         leading: IconButton(
+          padding: EdgeInsets.only(left: 20),
           onPressed: (){
             setState(() {
               Navigator.pop(context);
@@ -96,30 +99,31 @@ class _DeliveryTasksState extends State<DeliveryTasks> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: List.generate(2, (index) =>
-                    GestureDetector(
-                      onTap: (){
-                        setState(() {
-                          current = index;
-                        });
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Container(
-                          height: 84,
-                          width: 118,
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          decoration: BoxDecoration(
-                              color: Color(0xFFDBF5F0),
-                              borderRadius: BorderRadius.circular(15),
-                              border: Border.all(color: current==index ? Color(0xFF37BEB0) : Colors.transparent, width: 2)
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Image.asset(listButtonBar[index].icon),
-                              Text(listButtonBar[index].name, style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),)
-                            ],
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            current = index;
+                          });
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: Container(
+                            height: 100,
+                            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                            decoration: BoxDecoration(
+                                color: Color(0xFFDBF5F0),
+                                borderRadius: BorderRadius.circular(15),
+                                border: Border.all(color: current==index ? Color(0xFF37BEB0) : Colors.transparent, width: 2)
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(listButtonBar[index].icon),
+                                SizedBox(height: 5,),
+                                Text(listButtonBar[index].name, style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 14),)
+                              ],
+                            ),
                           ),
                         ),
                       ),

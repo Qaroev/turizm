@@ -18,16 +18,18 @@ class _PointsReferralsState extends State<PointsReferrals> {
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
-        centerTitle: true,
-        title: Text(
-          "Баллы с рефералов",
-          style: TextStyle(
-              color: Color(0xFF0C6170),
-              fontSize: 24,
-              fontWeight: FontWeight.w500),
+        title: Padding(
+          padding: const EdgeInsets.only(left: 10),
+          child: Text(
+            "Баллы с рефералов",
+            style: TextStyle(
+                color: Color(0xFF0C6170),
+                fontSize: 24,
+                fontWeight: FontWeight.w500),
+          ),
         ),
-        leadingWidth: 100,
         leading: IconButton(
+          padding: EdgeInsets.only(left: 20),
           onPressed: (){
             setState(() {
               Navigator.pop(context);

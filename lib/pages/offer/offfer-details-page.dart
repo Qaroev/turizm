@@ -227,43 +227,44 @@ class _OfferDetailsPageState extends State<OfferDetailsPage> {
                   SizedBox(height: 20,),
                   Row(
                     children: [
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        height: 44,
-                        width: 129,
-                        decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15),
-                            border: Border.all(color: Color(0xFFAFAFAF))
-                        ),
-                        child: Center(
-                          child: Text("Позвонить", style: TextStyle(color: Color(0xFF575757), fontSize: 16, fontWeight: FontWeight.w700),),
-                        ),
-                      ),
-                      SizedBox(width: 15,),
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        height: 44,
-                        width: 129,
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(15),
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Color(0xFFDBF5F0).withOpacity(0.44),
-                              Color(0xFF37BEB0),
-                              Color(0xFF1F807D),
-                            ],
-                            stops: [0.0, 0.175, 1.0],
-                            transform: GradientRotation(263.42 * 3.1416 / 180),
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(15),
+                              border: Border.all(color: Color(0xFFAFAFAF))
+                          ),
+                          child: Center(
+                            child: Text("Позвонить", style: TextStyle(color: Color(0xFF575757), fontSize: 16, fontWeight: FontWeight.w700),),
                           ),
                         ),
-                        child: Center(
-                          child: Text("Отзывы", style: TextStyle(color: Color(0xFFF0F0F0), fontSize: 16, fontWeight: FontWeight.w700),),
+                      ),
+                      SizedBox(width: 10,),
+                      Expanded(
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(15),
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xFFDBF5F0).withOpacity(0.44),
+                                Color(0xFF37BEB0),
+                                Color(0xFF1F807D),
+                              ],
+                              stops: [0.0, 0.175, 1.0],
+                              transform: GradientRotation(263.42 * 3.1416 / 180),
+                            ),
+                          ),
+                          child: Center(
+                            child: Text("Отзывы", style: TextStyle(color: Color(0xFFF0F0F0), fontSize: 16, fontWeight: FontWeight.w700),),
+                          ),
                         ),
                       ),
+                      SizedBox(width: 50,)
                     ],
                   ),
                   SizedBox(height: 20,),

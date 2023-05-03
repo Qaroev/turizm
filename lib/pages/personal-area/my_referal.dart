@@ -26,9 +26,9 @@ class _MyReferalState extends State<MyReferal> {
               fontSize: 24,
               fontWeight: FontWeight.w500),
         ),
-        leadingWidth: 100,
         titleSpacing: 0,
         leading: IconButton(
+          padding: EdgeInsets.only(left: 20),
           onPressed: () {
             setState(() {
               Navigator.pop(context);
@@ -64,7 +64,6 @@ class _MyReferalState extends State<MyReferal> {
                   child: Column(
                     children: [
                       Container(
-                        height: 145,
                         padding:
                             EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                         decoration: BoxDecoration(
@@ -220,7 +219,6 @@ class _MyReferalState extends State<MyReferal> {
 
   Container buildScore() {
     return Container(
-      height: 53,
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
         color: Colors.white,

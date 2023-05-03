@@ -125,7 +125,6 @@ class _ListHotelsState extends State<ListHotels> {
                       });
                     },
                     child: Container(
-                      height: 379,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(15),
@@ -146,20 +145,33 @@ class _ListHotelsState extends State<ListHotels> {
                             Positioned(
                               left: 10,
                               bottom: 10,
-                              child: Container(
-                                height: 36,
-                                alignment: Alignment.center,
-                                padding: EdgeInsets.symmetric(horizontal: 10),
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(15)),
-                                child: Text(
-                                  "Radisson Blu Royal Viking Hotel",
-                                  style: TextStyle(
-                                      color: Color(0xFF37B3B0),
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w600),
-                                ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    children: List.generate(5, (index) =>
+                                        Padding(
+                                          padding: const EdgeInsets.only(right: 5.0),
+                                          child: Image.asset("assets/icons/star.png"),
+                                        )
+                                    ),
+                                  ),
+                                  SizedBox(height: 10,),
+                                  Container(
+                                    width: 300,
+                                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(15)),
+                                    child: Text(
+                                      "Radisson BluRoyal Viking Hotel",
+                                      style: TextStyle(
+                                          color: Color(0xFF37B3B0),
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                             Positioned(
@@ -173,131 +185,108 @@ class _ListHotelsState extends State<ListHotels> {
                                     fontWeight: FontWeight.w500),
                               ),
                             ),
-                            Positioned(
-                              left: 10,
-                              bottom: 55,
-                              child: Row(
-                                children: List.generate(5, (index) =>
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 5.0),
-                                      child: Image.asset("assets/icons/star.png"),
-                                    )
-                                ),
-                              )
-                            ),
                           ]),
                           SizedBox(
                             height: 10,
                           ),
-                          Expanded(
-                            child: Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Column(
-                                    children: [
-                                      Row(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              Text(
-                                                "От\t",
-                                                style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontWeight:
-                                                    FontWeight.w400,
-                                                    fontSize: 20),
-                                              ),
-                                              Text(
-                                                "\$135",
-                                                style: TextStyle(
-                                                    color: Color(0xFF37B3B0),
-                                                    fontWeight:
-                                                    FontWeight.w400,
-                                                    fontSize: 36),
-                                              ),
-                                              Text(
-                                                "\tна\n\tчеловека",
-                                                style: TextStyle(
-                                                    color: Colors.black,
-                                                    fontWeight:
-                                                    FontWeight.w400,
-                                                    fontSize: 14),
-                                              ),
-                                            ],
-                                          ),
-                                          Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Row(
-                                                children: [
-                                                  Image.asset("assets/icons/bicon.png"),
-                                                  SizedBox(width: 10,),
-                                                  Text(
-                                                    "Booking",
-                                                    style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontSize: 15,
-                                                        fontWeight: FontWeight.w500),
-                                                  ),
-                                                  SizedBox(width: 10,),
-                                                  Text(
-                                                    "9.6",
-                                                    style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontWeight: FontWeight.w600,
-                                                        fontSize: 19),
-                                                  ),
-                                                ],
-                                              ),
-                                              SizedBox(height: 10,),
-                                              Row(
-                                                children: [
-                                                  Image.asset("assets/icons/tripadvisor.png"),
-                                                  SizedBox(width: 10,),
-                                                  Text(
-                                                    "Tripadvisor",
-                                                    style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontSize: 15,
-                                                        fontWeight: FontWeight.w500),
-                                                  ),
-                                                  SizedBox(width: 10,),
-                                                  Text(
-                                                    "4.5",
-                                                    style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontWeight: FontWeight.w600,
-                                                        fontSize: 19),
-                                                  ),
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        "Вы получите от 23 баллов",
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 15),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(height: 20,),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      GestureDetector(
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Wrap(
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          "От\t",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight:
+                                              FontWeight.w400,
+                                              fontSize: 20),
+                                        ),
+                                        Text(
+                                          "\$135",
+                                          style: TextStyle(
+                                              color: Color(0xFF37B3B0),
+                                              fontWeight:
+                                              FontWeight.w400,
+                                              fontSize: 36),
+                                        ),
+                                        Text(
+                                          "\tна\n\tчеловека",
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight:
+                                              FontWeight.w400,
+                                              fontSize: 14),
+                                        ),
+                                      ],
+                                    ),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Image.asset("assets/icons/bicon.png"),
+                                            SizedBox(width: 10,),
+                                            Text(
+                                              "Booking",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                            SizedBox(width: 10,),
+                                            Text(
+                                              "9.6",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 19),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(height: 10,),
+                                        Row(
+                                          children: [
+                                            Image.asset("assets/icons/tripadvisor.png"),
+                                            SizedBox(width: 10,),
+                                            Text(
+                                              "Tripadvisor",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                            SizedBox(width: 10,),
+                                            Text(
+                                              "4.5",
+                                              style: TextStyle(
+                                                  color: Colors.black,
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 19),
+                                            ),
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Text(
+                                  "Вы получите от 23 баллов",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 15),
+                                ),
+                                SizedBox(height: 10,),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Expanded(
+                                      child: GestureDetector(
                                         onTap: () {
                                           Navigator.of(context, rootNavigator: true).pop();
                                           showDialog(
@@ -308,9 +297,7 @@ class _ListHotelsState extends State<ListHotels> {
                                               });
                                         },
                                         child: Container(
-                                          padding: EdgeInsets.symmetric(horizontal: 20),
-                                          height: 44,
-                                          width: 160,
+                                          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                                           decoration: BoxDecoration(
                                               color: Colors.white,
                                               borderRadius: BorderRadius.circular(15),
@@ -321,11 +308,11 @@ class _ListHotelsState extends State<ListHotels> {
                                           ),
                                         ),
                                       ),
-                                      SizedBox(width: 15,),
-                                      Container(
-                                        padding: EdgeInsets.symmetric(horizontal: 20),
-                                        height: 44,
-                                        width: 160,
+                                    ),
+                                    SizedBox(width: 15,),
+                                    Expanded(
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                                         decoration: BoxDecoration(
                                           color: Colors.white,
                                           borderRadius: BorderRadius.circular(15),
@@ -345,10 +332,10 @@ class _ListHotelsState extends State<ListHotels> {
                                           child: Text("Об отеле", style: TextStyle(color: Color(0xFFF0F0F0), fontSize: 16, fontWeight: FontWeight.w700),),
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                ],
-                              ),
+                                    ),
+                                  ],
+                                ),
+                              ],
                             ),
                           ),
                         ],
@@ -369,50 +356,50 @@ class _ListHotelsState extends State<ListHotels> {
         borderRadius: BorderRadius.circular(15),
       ),
         contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-        content: Row(
+        actions:[
+          Row(
           children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              height: 45,
-              width: 160,
-              decoration: BoxDecoration(
-                color: Color(0xFF48BD10),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Row(
-                children: [
-                  Image.asset("assets/icons/watsapp.png"),
-                  SizedBox(width: 10,),
-                  Text("Watsapp", style: TextStyle(color: Color(0xFFF0F0F0), fontSize: 16, fontWeight: FontWeight.w600),),
-                ],
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                decoration: BoxDecoration(
+                  color: Color(0xFF48BD10),
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Row(
+                  children: [
+                    Image.asset("assets/icons/watsapp.png"),
+                    SizedBox(width: 10,),
+                    Text("Watsapp", style: TextStyle(color: Color(0xFFF0F0F0), fontSize: 16, fontWeight: FontWeight.w600),),
+                  ],
+                ),
               ),
             ),
             SizedBox(width: 10,),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              height: 44,
-              width: 160,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                  colors: [
-                    Color(0xFFDBF5F0).withOpacity(0.44),
-                    Color(0xFF37BEB0),
-                    Color(0xFF1F807D),
-                  ],
-                  stops: [0.0, 0.175, 1.0],
-                  transform: GradientRotation(263.42 * 3.1416 / 180),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15),
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Color(0xFFDBF5F0).withOpacity(0.44),
+                      Color(0xFF37BEB0),
+                      Color(0xFF1F807D),
+                    ],
+                    stops: [0.0, 0.175, 1.0],
+                    transform: GradientRotation(263.42 * 3.1416 / 180),
+                  ),
                 ),
-              ),
-              child: Center(
-                child: Text("Отзывы", style: TextStyle(color: Color(0xFFF0F0F0), fontSize: 16, fontWeight: FontWeight.w700),),
+                child: Center(child: Text("Отзывы", style: TextStyle(color: Color(0xFFF0F0F0), fontSize: 16, fontWeight: FontWeight.w700),)),
               ),
             ),
           ],
         ),
+    ]
     );
   }
 }

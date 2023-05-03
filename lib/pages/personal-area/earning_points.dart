@@ -37,9 +37,9 @@ class _EarningPointsState extends State<EarningPoints> {
               fontSize: 24,
               fontWeight: FontWeight.w500),
         ),
-        leadingWidth: 100,
         titleSpacing: 0,
         leading: IconButton(
+          padding: EdgeInsets.only(left: 20),
           onPressed: () {
             setState(() {
               Navigator.pop(context);
@@ -54,8 +54,8 @@ class _EarningPointsState extends State<EarningPoints> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Container(
-              height: _collapseLoadPoints ? 250: 70,
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              height: _collapseLoadPoints ? 310: 100,
+               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               decoration: BoxDecoration(
                   color: Color(0xFFDBF5F0),
                   borderRadius: BorderRadius.circular(15)),
@@ -79,12 +79,15 @@ class _EarningPointsState extends State<EarningPoints> {
                                     fontWeight: FontWeight.w600),
                               ),
                               SizedBox(height: 5,),
-                              Text(
-                                "Получай баллы, копи их и меняй на деньги!",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w300),
+                              SizedBox(
+                                width: 300,
+                                child: Text(
+                                  "Получай баллы, копи их и меняй на деньги!",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w300),
+                                ),
                               ),
                             ],
                           ),
@@ -240,7 +243,7 @@ class _EarningPointsState extends State<EarningPoints> {
                       AnimatedContainer(
                           duration: Duration(milliseconds: 0),
                           width: MediaQuery.of(context).size.width,
-                          height: _collapseActualPoints ? 600 : 0,
+                          height: _collapseActualPoints ? 480 : 0,
                           child: Padding(
                             padding: const EdgeInsets.only(top: 15),
                             child: buildListActual(
@@ -337,8 +340,7 @@ class _EarningPointsState extends State<EarningPoints> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              height:45,
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
@@ -350,8 +352,7 @@ class _EarningPointsState extends State<EarningPoints> {
               ),
             ),
             Container(
-              height:45,
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
@@ -359,7 +360,6 @@ class _EarningPointsState extends State<EarningPoints> {
               ),
               child: Center(
                 child: Text("до 27.03.23", style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.w500),),
-
               ),
             ),
             Container()
@@ -370,8 +370,7 @@ class _EarningPointsState extends State<EarningPoints> {
           onTap: (){
           },
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            height: 50,
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               gradient: LinearGradient(
@@ -422,15 +421,15 @@ class _EarningPointsState extends State<EarningPoints> {
               ),
             ),
             SizedBox(width: 10,),
-            SizedBox(
-                width: 300,
-                child: Text(
-                  conditions,
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400),
-                ))
+            Expanded(
+              child: Text(
+                conditions,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400),
+              ),
+            )
           ],
         ),
         SizedBox(height: 15,),
@@ -447,8 +446,7 @@ class _EarningPointsState extends State<EarningPoints> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
-              height:45,
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12),
@@ -460,8 +458,7 @@ class _EarningPointsState extends State<EarningPoints> {
               ),
             ),
             Container(
-              height:45,
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12),
@@ -481,8 +478,7 @@ class _EarningPointsState extends State<EarningPoints> {
             Navigator.push(context, MaterialPageRoute(builder: (context) => DeliveryTasks()));
           },
           child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            height: 50,
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               gradient: LinearGradient(
@@ -511,6 +507,7 @@ class _EarningPointsState extends State<EarningPoints> {
       ],
     );
   }
+
   Widget buildListTile(String title, String number) {
     return Container(
       padding: EdgeInsets.only(bottom: 10),

@@ -62,7 +62,6 @@ class _PersonalAreaState extends State<PersonalArea> {
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         children: [
           Container(
-            height: 227,
             padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
             decoration: BoxDecoration(
               color: Colors.white,
@@ -71,75 +70,79 @@ class _PersonalAreaState extends State<PersonalArea> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Image.asset("assets/images/user.png"),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      " Александр\n Зимин",
-                      style: TextStyle(
-                          color: Color(0xFF37B3B0),
-                          fontSize: 24,
-                          fontWeight: FontWeight.w600),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Телефон",
-                          style: TextStyle(
-                              color: Color(0xFF535353),
-                              fontSize: 13,
-                              fontWeight: FontWeight.w400),
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          "+372 550 735 62",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500),
-                        ),
-                      ],
-                    ),
-                    GestureDetector(
-                      onTap: (){
-                        setState(() {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
-                        });
-                      },
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        height: 35,
-                        width: 135,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          gradient: LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Color(0xFFDBF5F0).withOpacity(0.44),
-                              Color(0xFF37BEB0),
-                              Color(0xFF1F807D),
-                            ],
-                            stops: [0.0, 0.175, 1.0],
-                            transform: GradientRotation(263.42 * 3.1416 / 180),
-                          ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Профиль",
+                Expanded(child: Image.asset("assets/images/user.png")),
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Александр\nЗимин",
+                        style: TextStyle(
+                            color: Color(0xFF37B3B0),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      SizedBox(height: 20,),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Телефон",
                             style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700),
+                                color: Color(0xFF535353),
+                                fontSize: 13,
+                                fontWeight: FontWeight.w400),
+                          ),
+                          SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            "+372 550 735 62",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 20,),
+                      GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => ProfilePage()));
+                          });
+                        },
+                        child: Container(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          height: 35,
+                          width: 135,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xFFDBF5F0).withOpacity(0.44),
+                                Color(0xFF37BEB0),
+                                Color(0xFF1F807D),
+                              ],
+                              stops: [0.0, 0.175, 1.0],
+                              transform: GradientRotation(263.42 * 3.1416 / 180),
+                            ),
+                          ),
+                          child: Center(
+                            child: Text(
+                              "Профиль",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w700),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 )
               ],
             ),
@@ -154,19 +157,26 @@ class _PersonalAreaState extends State<PersonalArea> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(
-                  "223 620",
-                  style: TextStyle(
-                      color: Color(0xFF37B3B0),
-                      fontWeight: FontWeight.w500,
-                      fontSize: 48),
+                Expanded(
+                  flex: 0,
+                  child: Text(
+                    "223 620",
+                    style: TextStyle(
+                        color: Color(0xFF37B3B0),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 48),
+                  ),
                 ),
-                Text(
-                  "накоплено\nбаллов",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16),
+                SizedBox(width: 5,),
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    "накоплено баллов",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16),
+                  ),
                 ),
               ],
             ),
@@ -236,17 +246,20 @@ class _PersonalAreaState extends State<PersonalArea> {
             height: 20,
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+            padding: EdgeInsets.symmetric(vertical: 20),
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(15)),
             child: Column(
               children: [
-                Text(
-                  "Источники поступления баллов",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
+                  child: Text(
+                    "Источники поступления баллов",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600),
+                  ),
                 ),
                 SfCircularChart(
                   series: <CircularSeries>[
@@ -554,7 +567,6 @@ class _PersonalAreaState extends State<PersonalArea> {
 
   Container buildScore() {
     return Container(
-      height: 53,
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
       decoration: BoxDecoration(
           color: Colors.white,
