@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:turizm/pages/auth/login.dart';
+import 'package:turizm/pages/auth/touchandpin-page.dart';
 
 class RegistrationPage extends StatefulWidget {
   const RegistrationPage({Key? key}) : super(key: key);
@@ -11,198 +13,214 @@ class _RegistrationPageState extends State<RegistrationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          Image.asset(
-            'assets/images/login.png',
-            fit: BoxFit.cover,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/splash3.png'),
+            fit: BoxFit.cover
+          )
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 150),
+          child: Container(
             width: double.infinity,
-            height: 400,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(top: 150),
-            child: Container(
-              width: double.infinity,
-              height: 800,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30),
-                  topRight: Radius.circular(30),
-                ),
+            height: 800,
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
               ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 20),
-                child: ListView(
-                  children: [
-                    const SizedBox(height: 20),
-                    const Center(
-                      child: Text(
-                        'Регистрация',
-                        style: TextStyle(
-                          color: Color(0xFF0C6170),
-                          fontSize: 26,
-                          fontWeight: FontWeight.w600,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 20.0, right: 20),
+              child: ListView(
+                children: [
+                  const SizedBox(height: 20),
+                  const Center(
+                    child: Text(
+                      'Регистрация',
+                      style: TextStyle(
+                        color: Color(0xFF0C6170),
+                        fontSize: 26,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  Container(
+                    height: 74,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFDBF5F0),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                    ),
+                    padding: const EdgeInsets.all(15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Номер телефона',
+                          style: TextStyle(
+                            color: Color(0xFF777474),
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                      ),
-                    ),
-                    const SizedBox(height: 24),
-                    Container(
-                      height: 74,
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFDBF5F0),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(15),
+                        const SizedBox(height: 6),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            isDense: true,
+                            contentPadding: EdgeInsets.zero,
+                            hintText: "Введите номер телефон",
+                            border: InputBorder.none,
+                          ),
+                          keyboardType: TextInputType.phone,
                         ),
-                      ),
-                      padding: const EdgeInsets.all(15),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Номер телефона',
-                            style: TextStyle(
-                              color: Color(0xFF777474),
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          const SizedBox(height: 6),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              isDense: true,
-                              contentPadding: EdgeInsets.zero,
-                              hintText: "Введите номер телефон",
-                              border: InputBorder.none,
-                            ),
-                            keyboardType: TextInputType.phone,
-                          ),
-                        ],
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Container(
+                    height: 74,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFDBF5F0),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    Container(
-                      height: 74,
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFDBF5F0),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(15),
+                    padding: const EdgeInsets.all(15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Пароль',
+                          style: TextStyle(
+                            color: Color(0xFF777474),
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                      ),
-                      padding: const EdgeInsets.all(15),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Пароль',
-                            style: TextStyle(
-                              color: Color(0xFF777474),
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                            ),
+                        const SizedBox(height: 6),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            isDense: true,
+                            contentPadding: EdgeInsets.zero,
+                            hintText: "Введите пароль",
+                            border: InputBorder.none,
                           ),
-                          const SizedBox(height: 6),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              isDense: true,
-                              contentPadding: EdgeInsets.zero,
-                              hintText: "Введите пароль",
-                              border: InputBorder.none,
-                            ),
-                            keyboardType: TextInputType.text,
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: 20),
-                    Container(
-                      height: 74,
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFDBF5F0),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(15),
+                          keyboardType: TextInputType.text,
                         ),
-                      ),
-                      padding: const EdgeInsets.all(15),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Повторите пароль',
-                            style: TextStyle(
-                              color: Color(0xFF777474),
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          const SizedBox(height: 6),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              isDense: true,
-                              contentPadding: EdgeInsets.zero,
-                              hintText: "Введите пароль",
-                              border: InputBorder.none,
-                            ),
-                            keyboardType: TextInputType.text,
-                          ),
-                        ],
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Container(
+                    height: 74,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFDBF5F0),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    Container(
-                      height: 74,
-                      decoration: const BoxDecoration(
-                        color: Color(0xFFDBF5F0),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(15),
+                    padding: const EdgeInsets.all(15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Повторите пароль',
+                          style: TextStyle(
+                            color: Color(0xFF777474),
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
-                      ),
-                      padding: const EdgeInsets.all(15),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'Номер реферала',
-                            style: TextStyle(
-                              color: Color(0xFF777474),
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                            ),
+                        const SizedBox(height: 6),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            isDense: true,
+                            contentPadding: EdgeInsets.zero,
+                            hintText: "Введите пароль",
+                            border: InputBorder.none,
                           ),
-                          const SizedBox(height: 6),
-                          TextFormField(
-                            decoration: const InputDecoration(
-                              isDense: true,
-                              contentPadding: EdgeInsets.zero,
-                              hintText: "Введите ссылку",
-                              border: InputBorder.none,
-                            ),
-                            keyboardType: TextInputType.text,
-                          ),
-                        ],
+                          keyboardType: TextInputType.text,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Container(
+                    height: 74,
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFDBF5F0),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
                       ),
                     ),
-                    const SizedBox(height: 20),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: TextButton(
-                          onPressed: () {},
-                          child: const Text(
-                            'Восстановить пароль',
-                            style: TextStyle(
-                              color: Color(0xFF777474),
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          )),
+                    padding: const EdgeInsets.all(15),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'Номер реферала',
+                          style: TextStyle(
+                            color: Color(0xFF777474),
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        const SizedBox(height: 6),
+                        TextFormField(
+                          decoration: const InputDecoration(
+                            isDense: true,
+                            contentPadding: EdgeInsets.zero,
+                            hintText: "Введите ссылку",
+                            border: InputBorder.none,
+                          ),
+                          keyboardType: TextInputType.text,
+                        ),
+                      ],
                     ),
-                    Container(
+                  ),
+                  const SizedBox(height: 20),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Восстановить пароль',
+                          style: TextStyle(
+                            color: Color(0xFF777474),
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        )),
+                  ),
+                  GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const TouchAndPinPage()));
+                      });
+                    },
+                    child: Container(
                       width: MediaQuery.of(context).size.width,
                       height: 60,
-                      decoration: const BoxDecoration(
+                      decoration:  BoxDecoration(
                         color: Color(0xFF37BEB0),
                         borderRadius: BorderRadius.all(
                           Radius.circular(15),
+                        ),
+                        gradient: LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color(0xFFDBF5F0).withOpacity(0.44),
+                            Color(0xFF37BEB0),
+                            Color(0xFF1F807D),
+                          ],
+                          stops: [0.0, 0.175, 1.0],
+                          transform: GradientRotation(263.42 * 3.1416 / 180),
                         ),
                       ),
                       alignment: Alignment.center,
@@ -215,8 +233,15 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 15),
-                    Container(
+                  ),
+                  SizedBox(height: 15),
+                  GestureDetector(
+                    onTap: (){
+                      setState(() {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
+                      });
+                    },
+                    child: Container(
                       width: MediaQuery.of(context).size.width,
                       height: 60,
                       decoration: BoxDecoration(
@@ -234,13 +259,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
             ),
-          )
-        ],
+          ),
+        ),
       ),
     );
   }

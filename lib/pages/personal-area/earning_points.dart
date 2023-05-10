@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'delivery_tasks.dart';
@@ -30,7 +29,7 @@ class _EarningPointsState extends State<EarningPoints> {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "Заработок баллов",
           style: TextStyle(
               color: Color(0xFF0C6170),
@@ -39,7 +38,7 @@ class _EarningPointsState extends State<EarningPoints> {
         ),
         titleSpacing: 0,
         leading: IconButton(
-          padding: EdgeInsets.only(left: 20),
+          padding: const EdgeInsets.only(left: 20),
           onPressed: () {
             setState(() {
               Navigator.pop(context);
@@ -49,15 +48,14 @@ class _EarningPointsState extends State<EarningPoints> {
         ),
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 10),
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Container(
-              height: _collapseLoadPoints ? 310: 100,
-               padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+               padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
               decoration: BoxDecoration(
-                  color: Color(0xFFDBF5F0),
+                  color: const Color(0xFFDBF5F0),
                   borderRadius: BorderRadius.circular(15)),
               child: Column(
                 children: [
@@ -78,7 +76,7 @@ class _EarningPointsState extends State<EarningPoints> {
                                     fontSize: 20,
                                     fontWeight: FontWeight.w600),
                               ),
-                              SizedBox(height: 5,),
+                              const SizedBox(height: 5,),
                               SizedBox(
                                 width: 300,
                                 child: Text(
@@ -97,10 +95,11 @@ class _EarningPointsState extends State<EarningPoints> {
                         ],
                       )),
                   Expanded(
+                    flex: 0,
                     child: AnimatedContainer(
-                        duration: Duration(milliseconds: 0),
+                        duration: const Duration(milliseconds: 0),
                         width: MediaQuery.of(context).size.width,
-                        height: _collapseLoadPoints ? MediaQuery.of(context).size.width : 0,
+                        height: _collapseLoadPoints ? MediaQuery.of(context).size.height / 5.44 : 0,
                         child: Padding(
                           padding: const EdgeInsets.only(top: 15),
                           child: Column(
@@ -115,9 +114,9 @@ class _EarningPointsState extends State<EarningPoints> {
               ),
             ),
           ),
-          SizedBox(height: 20,),
-          Center(child: Text("Задания", style: TextStyle(color: Color(0xFF37B3B0), fontSize: 22, fontWeight: FontWeight.w600),)),
-          SizedBox(
+          const SizedBox(height: 20,),
+          const Center(child: Text("Задания", style: TextStyle(color: Color(0xFF37B3B0), fontSize: 22, fontWeight: FontWeight.w600),)),
+          const SizedBox(
             height: 15,
           ),
           Padding(
@@ -126,29 +125,29 @@ class _EarningPointsState extends State<EarningPoints> {
               height: 38,
               child: TextField(
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(10),
+                  contentPadding: const EdgeInsets.all(10),
                   prefixIcon: Image.asset(
                     "assets/icons/search-icon.png",
                   ),
                   hintText: "Поиск по заданиям...",
-                  hintStyle: TextStyle(
+                  hintStyle: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w400,
                       color: Color(0xFf828282)),
-                  fillColor: Color(0xFFDBF5F0),
+                  fillColor: const Color(0xFFDBF5F0),
                   filled: true,
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
-                    borderSide: BorderSide(color: Colors.white),
+                    borderSide: const BorderSide(color: Colors.white),
                   ),
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: BorderSide(color: Colors.white)),
+                      borderSide: const BorderSide(color: Colors.white)),
                 ),
               ),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 25,
           ),
           Container(
@@ -240,17 +239,20 @@ class _EarningPointsState extends State<EarningPoints> {
                                   : "assets/icons/region.png"),
                             ],
                           )),
-                      AnimatedContainer(
-                          duration: Duration(milliseconds: 0),
-                          width: MediaQuery.of(context).size.width,
-                          height: _collapseActualPoints ? 480 : 0,
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 15),
-                            child: buildListActual(
-                                "Lorem ipsum dolor sit amet consectetur. Sit nulla sed consectetur mus augue sagittis. Bibendum augue vel nec luctus pulvinar nec ac sagittis. Cras suspendisse pharetra at mauris vel ipsum varius libero. Ante facilisis arcu volutpat iaculis. Dolor molestie vel magnis euismod venenatis mi in amet. Risus in augue pulvinar tincidunt.",
-                                "Lorem ipsum dolor sit amet consectetur. "
-                            )
-                          )),
+                      Expanded(
+                        flex: 0,
+                        child: AnimatedContainer(
+                            duration: Duration(milliseconds: 0),
+                            width: MediaQuery.of(context).size.width,
+                            height: _collapseActualPoints ? MediaQuery.of(context).size.height / 2.04 : 0,
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 15),
+                              child: buildListActual(
+                                  "Lorem ipsum dolor sit amet consectetur. Sit nulla sed consectetur mus augue sagittis. Bibendum augue vel nec luctus pulvinar nec ac sagittis. Cras suspendisse pharetra at mauris vel ipsum varius libero. Ante facilisis arcu volutpat iaculis. Dolor molestie vel magnis euismod venenatis mi in amet. Risus in augue pulvinar tincidunt.",
+                                  "Lorem ipsum dolor sit amet consectetur. "
+                              )
+                            )),
+                      ),
                     ],
                   ),
                 )
@@ -306,14 +308,17 @@ class _EarningPointsState extends State<EarningPoints> {
                               : "assets/icons/region.png"),
                         ],
                       )),
-                  AnimatedContainer(
-                      duration: Duration(milliseconds: 0),
-                      width: MediaQuery.of(context).size.width,
-                      height: _collapseShop ? 200 : 0,
-                      child: Padding(
-                          padding: const EdgeInsets.only(top: 15),
-                          child: buildListShop()
-                      )),
+                  Expanded(
+                    flex: 0,
+                    child: AnimatedContainer(
+                        duration: Duration(milliseconds: 0),
+                        width: MediaQuery.of(context).size.width,
+                        height: _collapseShop ? MediaQuery.of(context).size.height / 4.08 : 0,
+                        child: Padding(
+                            padding: const EdgeInsets.only(top: 15),
+                            child: buildListShop()
+                        )),
+                  ),
                 ],
               ),
             ),
@@ -529,8 +534,7 @@ class _EarningPointsState extends State<EarningPoints> {
             ),
           ),
           SizedBox(width: 20,),
-          SizedBox(
-            width: 220,
+          Expanded(
               child: Text(
             title,
             style: TextStyle(

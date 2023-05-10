@@ -35,9 +35,6 @@ class _TravelLifestyleState extends State<TravelLifestyle> {
         leading: IconButton(
           padding: EdgeInsets.only(left: 20),
           onPressed: (){
-            setState(() {
-              Navigator.pop(context);
-            });
           },
           icon: Image.asset("assets/icons/arrow-up.png"),
         ),

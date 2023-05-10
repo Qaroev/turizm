@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:turizm/pages/bottom-pages/offer-page.dart';
 
@@ -22,10 +21,11 @@ class _HomeState extends State<Home> {
   ];
 
   List pages = [
-    OfferPage(),
-    PersonalArea(),
-    TravelLifestyle(),
+    const OfferPage(),
+    const PersonalArea(),
+    const TravelLifestyle(),
   ];
+
   @override
   void initState() {
     // refreshStream.stream.listen((event) {
@@ -35,9 +35,9 @@ class _HomeState extends State<Home> {
     // TODO: implement initState
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: pages[selectPage],
       bottomNavigationBar: _bottomNavigationBar(),
@@ -48,17 +48,17 @@ class _HomeState extends State<Home> {
   Widget _bottomNavigationBar() {
     return Container(
       height: 65,
-      padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(20), topRight: Radius.circular(20)),
         boxShadow: [
           BoxShadow(
               blurRadius: 18,
               spreadRadius: 0,
-              color: Color(0xFF0C1E4C).withOpacity(0.1),
-              offset: Offset(0, -1))
+              color: const Color(0xFF0C1E4C).withOpacity(0.1),
+              offset: const Offset(0, -1))
         ],
       ),
       child: Row(
@@ -75,7 +75,7 @@ class _HomeState extends State<Home> {
                 Image.asset(
                   listIconsButtonBar[index],
                   color: selectPage == index
-                      ? Color(0xFF37B3B0)
+                      ? const Color(0xFF37B3B0)
                       : index == 2
                           ? Colors.black12
                           : Colors.black,

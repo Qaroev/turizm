@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../data/country.dart';
@@ -31,7 +30,7 @@ class _GridMenuState extends State<GridMenu> {
                 Expanded(
                     child: Text(
                       widget.nameCountry,
-                      style: TextStyle(color: Colors.black ,fontSize: 22, fontWeight: FontWeight.w400),
+                      style: const TextStyle(color: Colors.black ,fontSize: 22, fontWeight: FontWeight.w400),
                     )),
                 Image.asset(_collapse
                     ? "assets/icons/updown.png"
@@ -42,7 +41,7 @@ class _GridMenuState extends State<GridMenu> {
           ),
         ),
         AnimatedContainer(
-          duration: Duration(milliseconds: 0),
+          duration: const Duration(milliseconds: 0),
           width: MediaQuery.of(context).size.width,
           height: _collapse ? MediaQuery.of(context).size.width : 0,
           child: GridView.builder(
@@ -55,24 +54,22 @@ class _GridMenuState extends State<GridMenu> {
             itemBuilder: (context, index) => GestureDetector(
               onTap: () {
                 setState(() {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> OfferDetailsPage()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const OfferDetailsPage()));
                 });
               },
-              child: Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(widget.listCountry[index].image),
-                    SizedBox(height: 5,),
-                    Text(
-                      widget.listCountry[index].name,
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w500),
-                    )
-                  ],
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(widget.listCountry[index].image),
+                  const SizedBox(height: 5,),
+                  Text(
+                    widget.listCountry[index].name,
+                    style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500),
+                  )
+                ],
               ),
             ),
           ),

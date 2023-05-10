@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class PointsReferrals extends StatefulWidget {
@@ -10,6 +9,7 @@ class PointsReferrals extends StatefulWidget {
 
 class _PointsReferralsState extends State<PointsReferrals> {
   bool showSeeAll = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,8 +18,8 @@ class _PointsReferralsState extends State<PointsReferrals> {
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
-        title: Padding(
-          padding: const EdgeInsets.only(left: 10),
+        title: const Padding(
+          padding: EdgeInsets.only(left: 10),
           child: Text(
             "Баллы с рефералов",
             style: TextStyle(
@@ -29,8 +29,8 @@ class _PointsReferralsState extends State<PointsReferrals> {
           ),
         ),
         leading: IconButton(
-          padding: EdgeInsets.only(left: 20),
-          onPressed: (){
+          padding: const EdgeInsets.only(left: 20),
+          onPressed: () {
             setState(() {
               Navigator.pop(context);
             });
@@ -39,16 +39,16 @@ class _PointsReferralsState extends State<PointsReferrals> {
         ),
       ),
       body: ListView(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             decoration: BoxDecoration(
-                color: Color(0xFFF4F4F4),
+                color: const Color(0xFFF4F4F4),
                 borderRadius: BorderRadius.circular(15)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
+              children: const [
                 Text(
                   "223 620",
                   style: TextStyle(
@@ -66,33 +66,61 @@ class _PointsReferralsState extends State<PointsReferrals> {
               ],
             ),
           ),
-          SizedBox(height: 30,),
-          Text("Операции", style: TextStyle(color: Color(0xFF0C6170), fontWeight: FontWeight.w600, fontSize: 24),),
-          SizedBox(height: 20,),
-          Text("За сегодня", style: TextStyle(color: Color(0xFF37B3B0), fontWeight: FontWeight.w500, fontSize: 16),),
-          SizedBox(height: 10,),
+          const SizedBox(
+            height: 30,
+          ),
+          const Text(
+            "Операции",
+            style: TextStyle(
+                color: Color(0xFF0C6170),
+                fontWeight: FontWeight.w600,
+                fontSize: 24),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          const Text(
+            "За сегодня",
+            style: TextStyle(
+                color: Color(0xFF37B3B0),
+                fontWeight: FontWeight.w500,
+                fontSize: 16),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
-              children: List.generate(showSeeAll ? 5 : 2, (index) =>
-              listShop()
-              ),
+              children:
+                  List.generate(showSeeAll ? 5 : 2, (index) => listShop()),
             ),
           ),
-          SizedBox(height: 30,),
-          Text("За неделю", style: TextStyle(color: Color(0xFF37B3B0), fontWeight: FontWeight.w500, fontSize: 16),),
-          SizedBox(height: 10,),
+          const SizedBox(
+            height: 30,
+          ),
+          const Text(
+            "За неделю",
+            style: TextStyle(
+                color: Color(0xFF37B3B0),
+                fontWeight: FontWeight.w500,
+                fontSize: 16),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
-              children: List.generate(showSeeAll ? 10 : 5, (index) =>
-                  listShop()
-              ),
+              children:
+                  List.generate(showSeeAll ? 10 : 5, (index) => listShop()),
             ),
           ),
-          SizedBox(height: 20,),
+          const SizedBox(
+            height: 20,
+          ),
           GestureDetector(
-            onTap: (){
+            onTap: () {
               setState(() {
                 showSeeAll = !showSeeAll;
               });
@@ -100,20 +128,20 @@ class _PointsReferralsState extends State<PointsReferrals> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   "Смотреть все",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 16,
                       fontWeight: FontWeight.w600),
                 ),
-                showSeeAll ? Icon(Icons.keyboard_arrow_up_rounded)
-                            : Icon(Icons.keyboard_arrow_down)
+                showSeeAll
+                    ? const Icon(Icons.keyboard_arrow_up_rounded)
+                    : const Icon(Icons.keyboard_arrow_down)
               ],
             ),
           ),
         ],
-
       ),
     );
   }
@@ -127,21 +155,52 @@ class _PointsReferralsState extends State<PointsReferrals> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Покупка “Имя члена сети”", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 16),),
-                SizedBox(height: 10,),
+                const Text(
+                  "Покупка “Имя члена сети”",
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 16),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
                 Row(
-                  children: [
-                    Text("12.02.22", style: TextStyle(color: Color(0xFF353535), fontWeight: FontWeight.w400, fontSize: 10),),
-                    SizedBox(width: 20,),
-                    Text("Детали покупки", style: TextStyle(color: Color(0xFF353535), fontWeight: FontWeight.w400, fontSize: 10),),
+                  children: const [
+                    Text(
+                      "12.02.22",
+                      style: TextStyle(
+                          color: Color(0xFF353535),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 10),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      "Детали покупки",
+                      style: TextStyle(
+                          color: Color(0xFF353535),
+                          fontWeight: FontWeight.w400,
+                          fontSize: 10),
+                    ),
                   ],
                 )
               ],
             ),
-            Text("+345", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 20),),
+            const Text(
+              "+345",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w400,
+                  fontSize: 20),
+            ),
           ],
         ),
-        Divider(color: Color(0xFFD1D5FF), thickness: 2,)
+        const Divider(
+          color: Color(0xFFD1D5FF),
+          thickness: 2,
+        )
       ],
     );
   }
