@@ -10,6 +10,7 @@ class ListHotels extends StatefulWidget {
 }
 
 class _ListHotelsState extends State<ListHotels> {
+  TextEditingController textEditingControllerSearchHotels = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,6 +58,7 @@ class _ListHotelsState extends State<ListHotels> {
                 child: SizedBox(
                   height: 45,
                   child: TextField(
+                    controller: textEditingControllerSearchHotels,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(10),
                       prefixIcon: Image.asset(

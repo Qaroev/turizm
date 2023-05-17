@@ -9,6 +9,9 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  TextEditingController textEditingControllerPhone = TextEditingController();
+  TextEditingController textEditingControllerEmail = TextEditingController();
+  TextEditingController textEditingControllerPass = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +57,7 @@ class _ProfilePageState extends State<ProfilePage> {
             title: Text("Телефон", style: TextStyle(color: Color(0xFF989898), fontSize: 16, fontWeight: FontWeight.w400),),
             subtitle: Container(
               child: TextFormField(
+                controller: textEditingControllerPhone,
                 decoration: InputDecoration(
                     hintText: "+372 550 735 62",
                     hintStyle: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w500),
@@ -76,6 +80,7 @@ class _ProfilePageState extends State<ProfilePage> {
             title: Text("Почта", style: TextStyle(color: Color(0xFF989898), fontSize: 16, fontWeight: FontWeight.w400),),
             subtitle: Container(
               child: TextFormField(
+                controller: textEditingControllerEmail,
                 decoration: InputDecoration(
                     hintText: "sanjaandreevich@gmail.com",
                     hintStyle: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w500),
@@ -98,6 +103,7 @@ class _ProfilePageState extends State<ProfilePage> {
             title: Text("Пароль", style: TextStyle(color: Color(0xFF989898), fontSize: 16, fontWeight: FontWeight.w400),),
             subtitle: Container(
               child: TextFormField(
+                controller: textEditingControllerPass,
                 decoration: InputDecoration(
                     hintText: "Gfhjkm1237",
                     hintStyle: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w500),

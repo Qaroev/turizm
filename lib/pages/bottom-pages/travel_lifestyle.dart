@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:graphite/core/typings.dart';
+import 'package:turizm/pages/bottom-pages/offer-page.dart';
 import 'package:turizm/pages/bottom-pages/personal_area.dart';
 
 import '../../travel/points_referals.dart';
+import '../home.dart';
 
 class TravelLifestyle extends StatefulWidget {
   const TravelLifestyle({Key? key}) : super(key: key);
@@ -35,6 +37,7 @@ class _TravelLifestyleState extends State<TravelLifestyle> {
         leading: IconButton(
           padding: EdgeInsets.only(left: 20),
           onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Home()));
           },
           icon: Image.asset("assets/icons/arrow-up.png"),
         ),

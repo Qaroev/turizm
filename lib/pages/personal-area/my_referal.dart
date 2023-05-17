@@ -1,3 +1,4 @@
+import 'package:expandable/expandable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,6 @@ class MyReferal extends StatefulWidget {
 }
 
 class _MyReferalState extends State<MyReferal> {
-  bool _collapse = false;
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class _MyReferalState extends State<MyReferal> {
               (index) => Padding(
                 padding: const EdgeInsets.only(bottom: 15.0),
                 child: Container(
-                  padding: EdgeInsets.only(bottom: 20),
+                  padding: EdgeInsets.only(bottom: 10),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                     gradient: LinearGradient(
@@ -140,72 +140,65 @@ class _MyReferalState extends State<MyReferal> {
                           ],
                         ),
                       ),
-                      Column(
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                _collapse = !_collapse;
-                              });
-                            },
-                            child: Container(
-                              padding: const EdgeInsets.only(
-                                  top: 20.0, left: 20, right: 20),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Text(
-                                    "Последние покупки",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  Image.asset(
-                                    _collapse
-                                        ? "assets/icons/up-white.png"
-                                        : "assets/icons/down-white.png",
-                                  ),
-                                ],
-                              ),
+                      SizedBox(height: 15,),
+                      ExpandableTheme(
+                        data: ExpandableThemeData(
+                          headerAlignment: ExpandablePanelHeaderAlignment.center,
+                          iconColor: Colors.white,
+                          iconPadding: EdgeInsets.only(right: 10),
+                          iconSize: 30,
+                        ),
+                        child: ExpandablePanel(
+                          header: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: Text(
+                              "Последние покупки",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600),
                             ),
                           ),
-                          Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: _collapse ? 280 : 0,
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    height: 20,
+                          collapsed: Container(),
+                          expanded: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 20.0),
+                                  child: Text(
+                                    "12.02.2023",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 11,
+                                        fontWeight: FontWeight.w600),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 20.0),
-                                    child: Text(
-                                      "12.02.2023",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 11,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                  ),
-                                  Column(
-                                    children: List.generate(
-                                        3,
-                                        (index) => Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 20,
-                                                      vertical: 10),
-                                              child: buildScore(),
-                                            )),
-                                  )
-                                ]),
-                          ),
-                        ],
-                      )
+                                ),
+                                Column(
+                                  children: List.generate(
+                                      3,
+                                          (index) => Padding(
+                                        padding:
+                                        const EdgeInsets.symmetric(
+                                            horizontal: 20,
+                                            vertical: 10),
+                                        child: buildScore(),
+                                      )),
+                                )
+                              ]),
+                          builder: (_, collapsed, expanded) {
+                            return Expandable(
+                              collapsed: collapsed,
+                              expanded: expanded,
+                              theme: const ExpandableThemeData(
+                                  crossFadePoint: 0),
+                            );
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 ),

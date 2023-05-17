@@ -2,8 +2,11 @@
 
 import 'package:flick_video_player/flick_video_player.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:turizm/pages/bottom-pages/travel_lifestyle.dart';
+import 'package:turizm/pages/chat/chat-page.dart';
 import 'package:video_player/video_player.dart';
 
 import '../personal-area/earning_points.dart';
@@ -27,7 +30,7 @@ class _PersonalAreaState extends State<PersonalArea> {
   bool _collapse = false;
 
   final List<GDPData> chartData = [
-    GDPData("Покупки ваших друзей ", 17, Color(0xFFDBF5F0)),
+    GDPData("Покупки ваших друзей", 17, Color(0xFFDBF5F0)),
     GDPData("Выполнение задания", 17, Color(0xFF2ADDD9)),
     GDPData("Покупка в “Ярко”", 47, Color(0xFF1CB2AF)),
     GDPData("Покупка у партнеров", 21, Color(0xFF2A827F)),
@@ -261,62 +264,71 @@ class _PersonalAreaState extends State<PersonalArea> {
                         fontWeight: FontWeight.w600),
                   ),
                 ),
-                SfCircularChart(
-                  series: <CircularSeries>[
-                    DoughnutSeries<GDPData, String>(
-                        dataSource: chartData,
-                        xValueMapper: (GDPData data, _) => data.content,
-                        yValueMapper: (GDPData data, _) => data.gdp,
-                        pointColorMapper: (GDPData data, _) => data.color,
-                        dataLabelMapper: (GDPData data, _) => data.content,
-                        dataLabelSettings: DataLabelSettings(
-                            builder: (dynamic data,
-                                dynamic point,
-                                dynamic series,
-                                int pointIndex,
-                                int seriesIndex) {
-                              return SizedBox(
-                                  height: 50,
-                                  width: 80,
-                                  child: RichText(
-                                    text: TextSpan(
-                                        text: "${data.content}\n",
-                                        style: TextStyle(
-                                            color:
-                                                data.color == Color(0xFFDBF5F0)
-                                                    ? Color(0xFF1CB2AF)
-                                                    : data.color,
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.w600),
-                                        children: <TextSpan>[
-                                          TextSpan(
-                                            text: "${data.gdp.toString()}%",
-                                            style: TextStyle(
-                                                color: data.color ==
-                                                        Color(0xFFDBF5F0)
-                                                    ? Color(0xFF1CB2AF)
-                                                    : data.color,
-                                                fontSize: 8,
-                                                fontWeight: FontWeight.w600),
-                                          )
-                                        ]),
-                                  ));
-                            },
-                            isVisible: true,
-                            textStyle: TextStyle(
-                                color: Color(0xFF2A827F),
-                                fontSize: 10,
-                                fontWeight: FontWeight.w600),
-                            labelIntersectAction: LabelIntersectAction.none,
-                            labelPosition: ChartDataLabelPosition.outside,
-                            connectorLineSettings: ConnectorLineSettings(
-                              width: 2,
-                              type: ConnectorType.line,
-                            )),
-                        startAngle: 25,
-                        endAngle: 385,
-                        innerRadius: '60%',
-                        radius: '50%'),
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SfCircularChart(
+                            series: <CircularSeries>[
+                              DoughnutSeries<GDPData, String>(
+                                  dataSource: chartData,
+                                  xValueMapper: (GDPData data, _) => data.content,
+                                  yValueMapper: (GDPData data, _) => data.gdp,
+                                  pointColorMapper: (GDPData data, _) => data.color,
+                                  dataLabelMapper: (GDPData data, _) => data.content,
+                                  dataLabelSettings: DataLabelSettings(
+                                      builder: (dynamic data,
+                                          dynamic point,
+                                          dynamic series,
+                                          int pointIndex,
+                                          int seriesIndex) {
+                                        return SizedBox(
+                                            width: 80,
+                                            child: RichText(
+                                              text: TextSpan(
+                                                  text: "${data.content}\n",
+                                                  style: TextStyle(
+                                                      color:
+                                                          data.color == Color(0xFFDBF5F0)
+                                                              ? Color(0xFF1CB2AF)
+                                                              : data.color,
+                                                      fontSize: 10,
+                                                      fontWeight: FontWeight.w600),
+                                                  children: <TextSpan>[
+                                                    TextSpan(
+                                                      text: "${data.gdp.toString()}%",
+                                                      style: TextStyle(
+                                                          color: data.color ==
+                                                                  Color(0xFFDBF5F0)
+                                                              ? Color(0xFF1CB2AF)
+                                                              : data.color,
+                                                          fontSize: 8,
+                                                          fontWeight: FontWeight.w600),
+                                                    )
+                                                  ]),
+                                            ));
+                                      },
+                                      isVisible: true,
+                                      textStyle: TextStyle(
+                                          color: Color(0xFF2A827F),
+                                          fontSize: 10,
+                                          fontWeight: FontWeight.w600),
+                                      labelIntersectAction: LabelIntersectAction.none,
+                                      labelPosition: ChartDataLabelPosition.outside,
+                                      connectorLineSettings: ConnectorLineSettings(
+                                        width: 2,
+                                        type: ConnectorType.line,
+                                      )),
+                                  startAngle: 25,
+                                  endAngle: 385,
+                                  innerRadius: '60%',
+                                  radius: '45%'),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ],
@@ -350,56 +362,42 @@ class _PersonalAreaState extends State<PersonalArea> {
                   height: 10,
                 ),
                 Column(
-                  children: List.generate(
-                      3,
-                      (index) => Padding(
-                            padding: const EdgeInsets.only(bottom: 10),
-                            child: buildScore(),
-                          )),
-                ),
-                Column(
                   children: [
+                    Column(
+                      children: List.generate(
+                          _collapse ? 3 : 5,
+                          (index) => Padding(
+                                padding: const EdgeInsets.only(bottom: 10),
+                                child: buildScore(),
+                              )),
+                    ),
                     GestureDetector(
                       onTap: () => setState(() {
                         _collapse = !_collapse;
                       }),
-                      child: !_collapse
-                          ? Padding(
-                              padding:
-                                  const EdgeInsets.only(bottom: 10, top: 10),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "Смотреть все",
-                                    style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600),
-                                  ),
-                                  Image.asset(_collapse
-                                      ? "assets/icons/updown.png"
-                                      : "assets/icons/region.png"),
-                                ],
-                              ),
-                            )
-                          : SizedBox(),
+                      child: Padding(
+                        padding:
+                        const EdgeInsets.only(bottom: 10, top: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Смотреть все",
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            Image.asset(_collapse
+                                ? "assets/icons/region.png"
+                                :  "assets/icons/updown.png"),
+                          ],
+                        ),
+                      )
                     ),
-                    AnimatedContainer(
-                        duration: Duration(milliseconds: 0),
-                        width: MediaQuery.of(context).size.width,
-                        height:
-                            _collapse ? MediaQuery.of(context).size.width : 0,
-                        child: Column(
-                          children: List.generate(
-                              5,
-                              (index) => Padding(
-                                    padding: const EdgeInsets.only(bottom: 10),
-                                    child: buildScore(),
-                                  )),
-                        )),
                   ],
-                )
+                ),
+
               ],
             ),
           ),
@@ -485,6 +483,9 @@ class _PersonalAreaState extends State<PersonalArea> {
                           fontWeight: FontWeight.w500),
                       children: [
                         TextSpan(
+                          recognizer: TapGestureRecognizer()..onTap = () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => TravelLifestyle()));
+                          },
                           text: " “Travel Lifestyle”",
                           style: TextStyle(
                               color: Color(0xFF0C6170),
@@ -533,30 +534,37 @@ class _PersonalAreaState extends State<PersonalArea> {
           SizedBox(
             height: 20,
           ),
-          Container(
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            height: 53,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(0xFFDBF5F0).withOpacity(0.44),
-                  Color(0xFF37BEB0),
-                  Color(0xFF1F807D),
-                ],
-                stops: [0.0, 0.175, 1.0],
-                transform: GradientRotation(263.42 * 3.1416 / 180),
+          GestureDetector(
+            onTap: (){
+              setState(() {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage()));
+              });
+            },
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              height: 53,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color(0xFFDBF5F0).withOpacity(0.44),
+                    Color(0xFF37BEB0),
+                    Color(0xFF1F807D),
+                  ],
+                  stops: [0.0, 0.175, 1.0],
+                  transform: GradientRotation(263.42 * 3.1416 / 180),
+                ),
               ),
-            ),
-            child: Center(
-              child: Text(
-                "Онлайн-чат с поддержкой",
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600),
+              child: Center(
+                child: Text(
+                  "Онлайн-чат с поддержкой",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600),
+                ),
               ),
             ),
           ),

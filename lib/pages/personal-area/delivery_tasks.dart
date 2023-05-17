@@ -8,6 +8,9 @@ class DeliveryTasks extends StatefulWidget {
 }
 
 class _DeliveryTasksState extends State<DeliveryTasks> {
+  TextEditingController textEditingControllerShop = TextEditingController();
+  TextEditingController textEditingControllerTask = TextEditingController();
+  TextEditingController textEditingControllerComment = TextEditingController();
   bool selectButton = false;
   List<TypeButton> listButtonBar = [
     TypeButton("Покупка", "assets/icons/shop.png"),
@@ -95,6 +98,7 @@ class _DeliveryTasksState extends State<DeliveryTasks> {
           current == 0 ? SizedBox(
             height: 45,
             child: TextField(
+              controller: textEditingControllerShop,
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(horizontal: 20),
                 hintText: "4 052",
@@ -118,6 +122,7 @@ class _DeliveryTasksState extends State<DeliveryTasks> {
                        : SizedBox(
             height: 45,
             child: TextField(
+              controller: textEditingControllerTask,
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.all(10),
                 prefixIcon: Image.asset(
@@ -183,6 +188,7 @@ class _DeliveryTasksState extends State<DeliveryTasks> {
           SizedBox(
             height: 127,
             child: TextField(
+              controller: textEditingControllerComment,
               maxLines: 300,
               decoration: InputDecoration(
                 contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),

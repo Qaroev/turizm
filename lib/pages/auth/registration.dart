@@ -10,6 +10,10 @@ class RegistrationPage extends StatefulWidget {
 }
 
 class _RegistrationPageState extends State<RegistrationPage> {
+  TextEditingController textEditingControllerPhone = TextEditingController();
+  TextEditingController textEditingControllerPass = TextEditingController();
+  TextEditingController textEditingControllerNewPass = TextEditingController();
+  TextEditingController textEditingControllerRef = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,8 +37,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20),
+              padding: const EdgeInsets.only(left: 20.0, right: 20, bottom: 10),
               child: ListView(
+                scrollDirection: Axis.vertical,
+                padding: EdgeInsets.symmetric(vertical: 20),
                 children: [
                   const SizedBox(height: 20),
                   const Center(
@@ -70,8 +76,10 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         ),
                         const SizedBox(height: 6),
                         TextFormField(
+                          controller: textEditingControllerPhone,
                           decoration: const InputDecoration(
                             isDense: true,
+                            enabled: true,
                             contentPadding: EdgeInsets.zero,
                             hintText: "Введите номер телефон",
                             border: InputBorder.none,
@@ -104,6 +112,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         ),
                         const SizedBox(height: 6),
                         TextFormField(
+                          controller: textEditingControllerPass,
                           decoration: const InputDecoration(
                             isDense: true,
                             contentPadding: EdgeInsets.zero,
@@ -138,6 +147,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         ),
                         const SizedBox(height: 6),
                         TextFormField(
+                          controller: textEditingControllerNewPass,
                           decoration: const InputDecoration(
                             isDense: true,
                             contentPadding: EdgeInsets.zero,
@@ -172,6 +182,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         ),
                         const SizedBox(height: 6),
                         TextFormField(
+                          controller: textEditingControllerRef,
                           decoration: const InputDecoration(
                             isDense: true,
                             contentPadding: EdgeInsets.zero,

@@ -46,6 +46,9 @@ dependencies:
   flutter_flow_chart: ^1.0.0+1
   star_menu: ^3.1.4
   path_provider: ^2.0.14
+  expandable: ^5.0.1
+
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -93,7 +93,7 @@ class _PointsReferralsState extends State<PointsReferrals> {
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
               children:
-                  List.generate(showSeeAll ? 5 : 2, (index) => listShop()),
+                  List.generate(2, (index) => listShop()),
             ),
           ),
           const SizedBox(

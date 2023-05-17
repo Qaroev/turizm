@@ -9,6 +9,9 @@ class PointsCashing extends StatefulWidget {
 }
 
 class _PointsCashingState extends State<PointsCashing> {
+  TextEditingController textEditingControllerCashing = TextEditingController();
+  TextEditingController textEditingControllerNumberCheck = TextEditingController();
+  TextEditingController textEditingControllerNameCheck = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,6 +69,7 @@ class _PointsCashingState extends State<PointsCashing> {
                   height: 45,
                   width: 136,
                   child: TextField(
+                    controller: textEditingControllerCashing,
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(10),
                       fillColor: Color(0xFFDBF5F0),
@@ -228,6 +232,7 @@ class _PointsCashingState extends State<PointsCashing> {
                   SizedBox(
                     height: 44,
                     child: TextField(
+                      controller: textEditingControllerNumberCheck,
                       decoration: InputDecoration(
                         fillColor: Color(0xFFDBF5F0),
                         filled: true,
@@ -260,6 +265,7 @@ class _PointsCashingState extends State<PointsCashing> {
                   SizedBox(
                     height: 44,
                     child: TextField(
+                      controller: textEditingControllerNameCheck,
                       decoration: InputDecoration(
                         fillColor: Color(0xFFDBF5F0),
                         filled: true,

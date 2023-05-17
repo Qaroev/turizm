@@ -1,3 +1,4 @@
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 
 import '../data/country.dart';
@@ -6,75 +7,103 @@ import '../pages/offer/offfer-details-page.dart';
 class GridMenu extends StatefulWidget {
   String nameCountry;
   List<Country> listCountry;
-   GridMenu({required this.nameCountry, required this.listCountry, Key? key}) : super(key: key);
+  ExpandableController controller;
+   GridMenu({required this.nameCountry, required this.listCountry, required this.controller , Key? key}) : super(key: key);
 
   @override
   _GridMenuState createState() => _GridMenuState();
 }
 
 class _GridMenuState extends State<GridMenu> {
-  bool _collapse = false;
+  ScrollController controllerScroll = ScrollController();
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    widget.controller.addListener(() {
+      setState(() {
+      });
+    });
+  }
+  @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        GestureDetector(
-          onTap: () => setState(() {
-            _collapse = !_collapse;
-          }),
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 10, top: 10),
-            child: Row(
-              children: [
-                Expanded(
-                    child: Text(
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Column(
+        children: [
+          ExpandableTheme(
+            data: ExpandableThemeData(
+                headerAlignment: ExpandablePanelHeaderAlignment.center,
+                iconColor: Colors.white,
+                iconPadding: EdgeInsets.only(right: 10),
+                iconSize: 30,
+                hasIcon: false
+            ),
+            child: ExpandablePanel(
+              controller: widget.controller,
+              header: Padding(
+                padding: const EdgeInsets.only(bottom: 10.0, top: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
                       widget.nameCountry,
                       style: const TextStyle(color: Colors.black ,fontSize: 22, fontWeight: FontWeight.w400),
-                    )),
-                Image.asset(_collapse
-                    ? "assets/icons/updown.png"
-                    : "assets/icons/region.png"
+                    ),
+                    Image.asset(widget.controller.expanded ? "assets/icons/updown.png" : "assets/icons/region.png")
+                  ],
                 ),
-              ],
-            ),
-          ),
-        ),
-        AnimatedContainer(
-          duration: const Duration(milliseconds: 0),
-          width: MediaQuery.of(context).size.width,
-          height: _collapse ? MediaQuery.of(context).size.width : 0,
-          child: GridView.builder(
-            scrollDirection: Axis.vertical,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 1.2,
-              crossAxisCount: 3,
-            ),
-            itemCount: widget.listCountry.length,
-            itemBuilder: (context, index) => GestureDetector(
-              onTap: () {
-                setState(() {
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const OfferDetailsPage()));
-                });
-              },
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(widget.listCountry[index].image),
-                  const SizedBox(height: 5,),
-                  Text(
-                    widget.listCountry[index].name,
-                    style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500),
-                  )
-                ],
               ),
+              collapsed: Container(),
+              expanded: Padding(
+                padding: EdgeInsets.only(top: 10),
+                child: Container(
+                  height: 200,
+                  child: GridView.builder(
+                    controller: controllerScroll,
+                    scrollDirection: Axis.vertical,
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      childAspectRatio: 1.2,
+                      crossAxisCount: 3,
+                    ),
+                    itemCount: widget.listCountry.length,
+                    itemBuilder: (context, index) => GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> const OfferDetailsPage()));
+                        });
+                      },
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.asset(widget.listCountry[index].image),
+                          const SizedBox(height: 5,),
+                          Text(
+                            widget.listCountry[index].name,
+                            style: const TextStyle(
+                                color: Colors.black,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              builder: (_, collapsed, expanded) {
+                return Expandable(
+                  collapsed: collapsed,
+                  expanded: expanded,
+                  theme: const ExpandableThemeData(
+                      crossFadePoint: 0),
+                );
+              },
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

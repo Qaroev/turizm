@@ -11,6 +11,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController textEditingControllerPhone = TextEditingController();
+  TextEditingController textEditingControllerPassword = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 20),
+              padding: const EdgeInsets.only(left: 20.0, right: 20, bottom: 10),
               child: ListView(
                 children: [
                   const SizedBox(height: 20),
@@ -71,6 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         const SizedBox(height: 6),
                         TextFormField(
+                          controller: textEditingControllerPhone,
                           decoration: const InputDecoration(
                             isDense: true,
                             contentPadding: EdgeInsets.zero,
@@ -105,6 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         const SizedBox(height: 6),
                         TextFormField(
+                          controller: textEditingControllerPassword,
                           decoration: const InputDecoration(
                             isDense: true,
                             contentPadding: EdgeInsets.zero,
