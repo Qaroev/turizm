@@ -15,7 +15,7 @@ class _EarningPointsState extends State<EarningPoints> {
   List<String> listNamePoints = [
     "Ваши покупки туристических услуг в турагентстве “Ярко”",
     "Покупки туристических услуг людьми, кто указал ваш реферальный код",
-    "Ваши покупки у бизнесов-партнёров нашей компании",
+    "Ваши покупки у бизнес-партнёров нашей компании",
     "Выполнение заданий, которые способствуют продвижению нашей компании"
   ];
 
@@ -290,8 +290,8 @@ class _EarningPointsState extends State<EarningPoints> {
                         expanded: Padding(
                             padding: const EdgeInsets.only(top: 15),
                             child: buildListActual(
-                                "Lorem ipsum dolor sit amet consectetur. Sit nulla sed consectetur mus augue sagittis. Bibendum augue vel nec luctus pulvinar nec ac sagittis. Cras suspendisse pharetra at mauris vel ipsum varius libero. Ante facilisis arcu volutpat iaculis. Dolor molestie vel magnis euismod venenatis mi in amet. Risus in augue pulvinar tincidunt.",
-                                "Lorem ipsum dolor sit amet consectetur. "
+                                "Железных Водах — это отдых в санатории «Бештау» в Железноводске на Северном Кавказе, где за две недели находила свыше 120 км. Здесь много интересного и познавательного, но лучше всего — горный воздух и минеральная вода «Славяновская».",
+                              "Две недели"
                             )
                         ),
                         builder: (_, collapsed, expanded) {
@@ -369,27 +369,32 @@ class _EarningPointsState extends State<EarningPoints> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Как получить баллы?",
-                                style: TextStyle(
-                                    color: Color(0xFF37B3B0),
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              SizedBox(height: 5,),
-                              Text(
-                                "Получай баллы, копи их и меняй на деньги!",
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w300),
-                              )
-                            ],
+                          Expanded(
+                            flex: 10,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Как получить баллы?",
+                                  style: TextStyle(
+                                      color: Color(0xFF37B3B0),
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                SizedBox(height: 5,),
+                                Text(
+                                  "Получай баллы, копи их и меняй на деньги!",
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w300),
+                                )
+                              ],
+                            ),
                           ),
-                          Image.asset(expandableControllerGetPoints.expanded ? "assets/icons/updown.png" : "assets/icons/region.png")
+                          Expanded(
+                            flex: 1,
+                              child: Image.asset(expandableControllerGetPoints.expanded ? "assets/icons/updown.png" : "assets/icons/region.png"))
                         ],
                       ),
                     ),

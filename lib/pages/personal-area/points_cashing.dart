@@ -236,6 +236,7 @@ class _PointsCashingState extends State<PointsCashing> {
                       decoration: InputDecoration(
                         fillColor: Color(0xFFDBF5F0),
                         filled: true,
+                        contentPadding: EdgeInsets.all(10),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                           borderSide: BorderSide(
@@ -269,6 +270,7 @@ class _PointsCashingState extends State<PointsCashing> {
                       decoration: InputDecoration(
                         fillColor: Color(0xFFDBF5F0),
                         filled: true,
+                        contentPadding: EdgeInsets.all(10),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
                           borderSide: BorderSide(

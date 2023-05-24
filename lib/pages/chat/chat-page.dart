@@ -30,7 +30,7 @@ class _ChatPageState extends State<ChatPage> {
                       borderRadius: BorderRadius.circular(12)
                     ),
                     child: Text(
-                        "Lorem ipsum dolor sit amet consectetur. Tincidunt turpis eu montes id non. Nullam id sit proin hac nisi. Lorem et massa non amet gravida nisi phasellus vitae. Ac feugiat et gravida amet leo et. Quisque eros feugiat elit neque.",
+                        "Привет",
                       style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 14),
                     ),
                   ),

@@ -23,6 +23,7 @@ class OfferPage extends StatefulWidget {
 class _OfferPageState extends State<OfferPage> {
   bool checkedValue = false;
   double currentValueSlide = 0;
+  TextEditingController controllerSearch = TextEditingController();
   ExpandableController expandableControllerEurope = ExpandableController();
   ExpandableController expandableControllerAsia = ExpandableController();
   ExpandableController expandableControllerSUSA = ExpandableController();
@@ -45,6 +46,7 @@ class _OfferPageState extends State<OfferPage> {
                   child: SizedBox(
                     height: 45,
                     child: TextField(
+                      controller: controllerSearch,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(10),
                         prefixIcon: Image.asset(

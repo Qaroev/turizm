@@ -323,7 +323,7 @@ class _PersonalAreaState extends State<PersonalArea> {
                                   startAngle: 25,
                                   endAngle: 385,
                                   innerRadius: '60%',
-                                  radius: '45%'),
+                                  radius: '33%'),
                             ],
                           ),
                         ),

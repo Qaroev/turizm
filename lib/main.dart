@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:turizm/splash-screen/onboarding-one.dart';
 
 
@@ -18,8 +20,17 @@ class MyApp extends StatelessWidget {
     ]);
     return const MaterialApp(
       title: '',
-      debugShowCheckedModeBanner: false,
       home: OnBoardingOne(),
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        // DefaultCupertinoLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate, // Here !
+        DefaultWidgetsLocalizations.delegate,
+      ],
+      locale: Locale('ru_RU'),
+      supportedLocales: [
+         Locale('ru', 'RU'),
+      ],
     );
   }
 }

@@ -56,6 +56,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: globalKey,
+      endDrawerEnableOpenDragGesture: false,
       body: pages[selectPage],
       bottomNavigationBar: _bottomNavigationBar(),
       endDrawer: buildDrawer()
